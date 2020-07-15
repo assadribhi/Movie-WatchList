@@ -32,7 +32,9 @@ const WatchedList = () => {
         {itemList.length !== 0 ? (
           itemList
         ) : (
-          <div className="list-group-item">No Movies found</div>
+          <div className="list-group-item">
+            No Movies found... you call yourself a movie fan?
+          </div>
         )}
       </div>
     </div>

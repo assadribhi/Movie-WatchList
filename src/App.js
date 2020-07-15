@@ -21,37 +21,44 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="input-group mb-3">
-        <input
-          required
-          name="name"
-          type="text"
-          onChange={handleChange}
-          className="form-control"
-          value={item.name}
-        />
-        <div class="input-group-append">
-          <button
-            className="btnbtn-outline-secondary"
-            type="Submit"
-            onClick={handleSubmit}
-          >
-            Create
-          </button>
-        </div>
+    <>
+      <div className="Container  d-flex justify-content-center align-items-center">
+        <h1>Movie Watchlist Tracker</h1>
       </div>
       <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <WatchList />
+        <form className="col-6" onSubmit={handleSubmit}>
+          <div className="input-group mb-3">
+            <input
+              required="required"
+              name="name"
+              type="text"
+              onChange={handleChange}
+              className="form-control"
+              value={item.name}
+            />
+            <div class="input-group-append">
+              <button
+                className="btnbtn-outline-secondary"
+                type="Submit"
+                onClick={handleSubmit}
+              >
+                Create
+              </button>
+            </div>
           </div>
-          <div className="col-6">
-            <WatchedList />
+        </form>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <WatchList />
+            </div>
+            <div className="col-6">
+              <WatchedList />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
