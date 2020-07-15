@@ -2,6 +2,7 @@ import { ListWrapper, SearchBarStyledLabel } from "../styles";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import AddButton from "./buttons/AddButton";
+
 import watchStore from "./stores/WatchStore";
 import { observer } from "mobx-react";
 import MovieItem from "./MovieItem";
@@ -9,7 +10,7 @@ import MovieItem from "./MovieItem";
 const WatchList = () => {
   const [query, setQuery] = useState("");
 
-  const itemList = watchStore.items
+  const itemList = watchStore.items //search for item
     .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
     .map((item) =>
       item.name === "" ? (
@@ -23,7 +24,8 @@ const WatchList = () => {
     <div className="container">
       <div className="row">
         <div className="col-4">
-          <SearchBarStyledLabel>Watch List</SearchBarStyledLabel>
+          <SearchBarStyledLabel />
+          <AddButton />
         </div>
 
         <div className="col-8">
@@ -33,7 +35,7 @@ const WatchList = () => {
       {itemList}
 
       {/* <ListWrapper className="row">{itemList}</ListWrapper> */}
-      {/* <AddButton />  */}
+      {/* <AddButton /> */}
     </div>
   );
 };

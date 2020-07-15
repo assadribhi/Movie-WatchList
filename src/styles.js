@@ -103,31 +103,40 @@ export const SearchBarStyledLabel = styled.label`
 
 export const DeleteButtonStyled = styled.button`
 
-margin: 20%;
+margin: 5%;
   item-align: center;
-  padding: 10%;
-  border: 2px solid     #FF0000;
+  padding: 1%;
+  border: 1px solid #FF0000;
   color: white;
   background-color: red;
-  font-size: 20px;
+  font-size: 10px;
   }
 border-radius: 20px;
 
 `;
 
-// export const CreateButtonStyled = styled.button`;
-//   color: ${(props) => props.theme.backgroundColor};
-//   background-color: ${(props) => props.theme.mainColor};
+export const CreateButtonStyled = styled.button`
+  color: black;
+  background-color: white;
 
-//   &:hover {
-//     color: ${(props) => props.theme.mainColor};
-//     background-color: ${(props) => props.theme.backgroundColor};
-//   }
-// `;
+  &:hover {
+    color: red;
+    background-color: white;
+  }
+`;
 
-// export const UpdateButtonStyled = styled.p`
-//   color: ${(props) => props.theme.pink};
-// `;
+export const AddButtonStyled = styled.button`
+  color: black;
+  background-color: white;
+  padding: 0.5rem;
+  margin: 1rem auto;
+
+  &:hover {
+    color: red;
+    background-color: white;
+  }
+`;
+
 // export {
 //   Description,
 //   NavStyled,
