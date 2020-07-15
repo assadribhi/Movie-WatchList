@@ -7,7 +7,7 @@ const OriginalMovieList = [
   {
     id: 2,
     name: "The Matrix",
-    status: true,
+    status: false,
   },
   {
     id: 3,

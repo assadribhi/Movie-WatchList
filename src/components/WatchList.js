@@ -1,7 +1,5 @@
-import { ListWrapper, SearchBarStyledLabel } from "../styles";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import AddButton from "./buttons/AddButton";
 
 import watchStore from "./stores/WatchStore";
 import { observer } from "mobx-react";
@@ -10,32 +8,36 @@ import MovieItem from "./MovieItem";
 const WatchList = () => {
   const [query, setQuery] = useState("");
 
-  const itemList = watchStore.items //search for item
+  const watchItems = watchStore.items.filter((movie) => movie.status);
+
+  //search for item
+  const itemList = watchItems
     .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
-    .map((item) =>
-      item.name === "" ? (
-        console.log("No Movie Found")
-      ) : (
-        <MovieItem item={item} key={item.id} />
-      )
-    );
+    .map((item) => <MovieItem item={item} key={item.id} />);
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-4">
-          <SearchBarStyledLabel />
-          <AddButton />
+      <div className="row d-flex  align-items-center">
+        <div className="col justify-content-start">
+          <h2> Watch List</h2>
         </div>
+        <div className="col justify-content-end">
+          <h3 className="badge badge-primary badge-pill margin-auto">
+            {itemList.length}
+          </h3>
+        </div>
+      </div>
 
-        <div className="col-8">
+      <div className="list-group">
+        <div className="list-group">
           <SearchBar setQuery={setQuery} />
         </div>
       </div>
-      {itemList}
-
-      {/* <ListWrapper className="row">{itemList}</ListWrapper> */}
-      {/* <AddButton /> */}
+      {itemList.length !== 0 ? (
+        itemList
+      ) : (
+        <div className="list-group-item">No Movies found</div>
+      )}
     </div>
   );
 };
