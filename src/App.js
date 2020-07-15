@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import WatchList from "./components/WatchList";
 import WatchedList from "./components/WatchedList";
 import watchStore from "./components/stores/WatchStore";
+import filmCountDown from "./FilmCountDown.gif";
+
+import { CountDownImage } from "./styles";
 
 function App() {
   const [item, setItem] = useState({
@@ -15,9 +18,14 @@ function App() {
     setItem(newItem);
   };
 
-  const handleSubmit = (event) => {
+  const handleNewItemSubmit = (event) => {
     event.preventDefault();
-    watchStore.createItem(item);
+    watchStore.createNewItem(item);
+  };
+
+  const handleWatchedItemSubmit = (event) => {
+    event.preventDefault();
+    watchStore.createWatchedItem(item);
   };
 
   return (
@@ -25,9 +33,23 @@ function App() {
       <div className="Container  d-flex justify-content-center align-items-center">
         <h1>Movie Watchlist Tracker</h1>
       </div>
+      <div>
+        <CountDownImage>
+          <img src={filmCountDown} alt={filmCountDown} />
+        </CountDownImage>
+      </div>
       <div className="container">
-        <form className="col-6" onSubmit={handleSubmit}>
+        <form>
           <div className="input-group mb-3">
+            <div class="input-group-append">
+              <button
+                className="btn btn-outline-secondary justify-content-start"
+                type="Submit"
+                onClick={handleNewItemSubmit}
+              >
+                Add a Movie to Watch
+              </button>
+            </div>
             <input
               required="required"
               name="name"
@@ -38,11 +60,11 @@ function App() {
             />
             <div class="input-group-append">
               <button
-                className="btnbtn-outline-secondary"
+                className="btn btn-outline-primary"
                 type="Submit"
-                onClick={handleSubmit}
+                onClick={handleWatchedItemSubmit}
               >
-                Create
+                Add a Watched Movie
               </button>
             </div>
           </div>

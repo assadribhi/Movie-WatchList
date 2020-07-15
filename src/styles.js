@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const CountDownImage = styled.div`
+  padding: 1.5em;
+  img {
+    display: block;
+    margin: auto;
+    width: 30%;
+  }
+`;
+
 export const SearchBarStyled = styled.input`
   padding: 0.5rem;
   display: block;
