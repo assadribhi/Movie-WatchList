@@ -4,10 +4,6 @@ import { decorate, observable } from "mobx";
 class WatchStore {
   items = OriginalMovieList;
 
-  // watchMovie = (movie) => {
-  //   this.watcheditems.push()
-  // };
-
   createItem = (newItem) => {
     newItem.id =
       this.items.length !== 0 ? this.items[this.items.length - 1].id + 1 : 1;
