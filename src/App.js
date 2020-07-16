@@ -55,6 +55,7 @@ function App() {
               name="name"
               type="text"
               onChange={handleChange}
+              placeholder="Add a Movie"
               className="form-control"
               value={item.name}
             />
